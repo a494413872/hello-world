@@ -1,0 +1,74 @@
+下面比较多的是我执行出来的日志。
+你可以看到不同的线程的日志是混淆在一起的，很乱。
+但是如果你搜索带trackNumber的日志。比如搜索22aeab91c69f40d。那么你就能找到这个
+日志本身的逻辑不会乱了。
+特别是在linux下面，如果你使用grep "22aeab91c69f40d"
+那么你就会把所有带 22aeab91c69f40d 打出来。那么你看到的就是。
+[22aeab91c69f40d]start doing somthion
+[22aeab91c69f40d]doing somthin
+[22aeab91c69f40d]end
+这种整齐的日志了。
+
+
+start doing somthion
+start doing somthion
+start doing somthion
+start doing somthion
+start doing somthion
+start doing somthion
+start doing somthion
+start doing somthion
+start doing somthion
+start doing somthion
+doing somthin
+doing somthin
+doing somthin
+end
+[22aeab91c69f40d]start doing somthion
+doing somthin
+end
+[22aeab923069057]start doing somthion
+doing somthin
+doing somthin
+[22aeab91c69f40d]doing somthin
+doing somthin
+end
+[22aeab92a8de37f]start doing somthion
+[22aeab923069057]doing somthin
+doing somthin
+end
+[22aeab92db1a943]start doing somthion
+end
+[22aeab92eed7d73]start doing somthion
+end
+[22aeab93011cbb8]start doing somthion
+[22aeab92eed7d73]doing somthin
+doing somthin
+[22aeab91c69f40d]end
+doing somthin
+end
+[22aeab932c21b3f]start doing somthion
+end
+[22aeab934cb5319]start doing somthion
+end
+[22aeab935d1325e]start doing somthion
+[22aeab92eed7d73]end
+[22aeab92db1a943]doing somthin
+[22aeab92a8de37f]doing somthin
+end
+[22aeab93ea9d0df]start doing somthion
+[22aeab923069057]end
+[22aeab93011cbb8]doing somthin
+[22aeab935d1325e]doing somthin
+[22aeab92db1a943]end
+[22aeab934cb5319]doing somthin
+[22aeab932c21b3f]doing somthin
+[22aeab935d1325e]end
+[22aeab932c21b3f]end
+[22aeab93ea9d0df]doing somthin
+[22aeab92a8de37f]end
+[22aeab93011cbb8]end
+[22aeab934cb5319]end
+[22aeab93ea9d0df]end
+
+Process finished with exit code 0

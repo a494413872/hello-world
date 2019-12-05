@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lvmama.dao.PdfGenerateResultDao">
+    <resultMap id="BaseResultMap" type="com.lvmama.vo.PdfGenerateResult">
+        <id column="id" property="id" />
+        <result column="generate_time" property="generateTime" />
+        <result column="data_count" property="dataCount" />
+        <result column="pdf_count" property="pdfCount" />
+        <result column="content" property="content" />
+        <result column="updateTime" property="updateTime" />
+    </resultMap>
+    <select id="listResult" resultMap="BaseResultMap">
+        select * from pdf_generate_result;
+    </select>
+    <insert id="logResult" parameterType="com.lvmama.vo.PdfGenerateResult">
+        insert into pdf_generate_result(generate_time,data_count,pdf_count,content,update_time) values (#{generateTime,jdbcType=VARCHAR},#{dataCount,jdbcType=VARCHAR},#{pdfCount,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{updateTime,jdbcType=DATE})
+    </insert>
+</mapper>
+
+

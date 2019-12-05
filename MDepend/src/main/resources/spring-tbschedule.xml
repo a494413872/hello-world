@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+    <!--tbschedule管理器初始化（配置zookeeper,注册调度任务和调度策略）-->
+    <bean id="systemTBScheduleManagerFactory" class="system.SystemTBScheduleManagerFactory">
+        <property name="zkConfig">
+            <map>
+                <entry key="zkConnectString" value="127.0.0.1:2181" />
+                <entry key="rootPath" value="/my" />
+                <entry key="userName" value="" />
+                <entry key="password" value="" />
+                <entry key="zkSessionTimeout" value="8000" />
+                <entry key="isCheckParentPath" value="true" />
+            </map>
+        </property>
+    </bean>
+    <!--<bean id="firstScheduleDemo" class="system.FirstScheduleDemo" />-->
+    <!--任务simpleTask-->
+    <bean id="simpleTask" class="system.FirstScheduleDemo" >
+        <property name="scheduleTaskType">
+            <bean class="com.taobao.pamirs.schedule.taskmanager.ScheduleTaskType">
+                <!--允许执行的开始时间-->
+                <property name="permitRunStartTime" value="0 0 0 * * ?" />
+                <!--允许执行的结束时间-->
+                <property name="permitRunEndTime" value="59 59 23 * * ?"  />
+                <!--当没有数据的时候，休眠的时间-->
+                <property name="sleepTimeNoData" value="3000"  />
+                <!--在每次数据处理晚后休眠的时间-->
+                <property name="sleepTimeInterval" value="1000"  />
+                <!--每次获取数据的数量-->
+                <property name="fetchDataNumber" value="10"  />
+                <!--任务项数组-->
+                <property name="taskItems">
+                    <list>
+                        <value>0:{TYPE=A,KIND=1}</value>
+                        <value>1:{TYPE=B,KIND=2}</value>
+                        <value>2:{TYPE=C,KIND=3}</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <property name="scheduleStrategy">
+            <bean class="com.taobao.pamirs.schedule.strategy.ScheduleStrategy">
+                <!--最大线程组数量-->
+                <property name="assignNum" value="9" />
+                <!--单个机器的线程组数量-->
+                <property name="numOfSingleServer" value="1" />
+                <!--策略运行的机器-->
+                <property name="IPList">
+                    <list>
+                        <value>127.0.0.1</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>

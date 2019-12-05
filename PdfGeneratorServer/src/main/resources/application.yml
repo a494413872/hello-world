@@ -1,0 +1,25 @@
+server:
+  port: 8090
+  context-path: /pdfGenerator/
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://104.224.129.106:3306/pdfgenerator?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: utf-8
+    content-type: text/html
+    prefix: classpath:/pages/
+    suffix: .html
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.lvmama.vo
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#logging:
+#  config: classpath:logback-boot.xml

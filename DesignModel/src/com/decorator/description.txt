@@ -1,0 +1,5 @@
+装饰者模式
+
+有几个角色
+Component 要被装饰的接口
+Decorator 装饰接口，装饰接口里面需要放一个Component。然后具体的实现类，来对component本身的逻辑进行装饰。

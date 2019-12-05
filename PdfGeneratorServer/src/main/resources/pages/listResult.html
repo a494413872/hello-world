@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>list Result</title>
+    <style>
+        .wrap {
+            margin: 0 auto;
+            width: 705px;
+
+        }
+        .p_table{
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            text-align: center;
+        }
+        .p_table th{
+            border: 1px solid #D8DCE5;
+            padding: 5px 10px;
+            text-align: left;
+            background: #7BB7F2;
+            color: #fff;
+        }
+        .p_table td{
+            border: 1px solid #D8DCE5;
+            padding: 5px 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table border="1" class="p_table">
+        <tr>
+            <th width="160px">生成时间</th>
+            <th width="90px">二维码数量</th>
+            <th width="80px">pdf数量</th>
+            <th >Content</th>
+        </tr>
+        <tr th:each="pdfGenerateResult : ${vos}">
+            <td th:text="${pdfGenerateResult.generateTime}"></td>
+            <td th:text="${pdfGenerateResult.dataCount}"></td>
+            <td th:text="${pdfGenerateResult.pdfCount}"></td>
+            <td th:text="${pdfGenerateResult.content}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Class-Path: lib/commons-collections-3.2.1.jar lib/poi-3.15.jar lib/sta
+ x-api-1.0.1.jar lib/poi-ooxml-schemas-3.15.jar lib/commons-io-2.4.jar
+  lib/itext-2.0.8.jar lib/core-renderer-R8.jar lib/itextpdf-5.5.9.jar 
+ lib/httpclient-4.2.1.jar lib/poi-ooxml-3.15.jar lib/httpcore-4.2.1.ja
+ r lib/ezmorph-1.0.6.jar lib/commons-beanutils-1.8.0.jar lib/curvesapi
+ -1.04.jar lib/jtidy-r938.jar lib/commons-collections4-4.1.jar lib/jso
+ n-lib-2.4-jdk15.jar lib/commons-logging-1.1.1.jar lib/commons-lang-2.
+ 5.jar lib/commons-codec-1.6.jar lib/xmlbeans-2.6.0.jar
+Main-Class: com.lvmama.pdfGenerator.Generate
+

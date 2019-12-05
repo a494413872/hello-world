@@ -1,0 +1,16 @@
+迭代子模式：
+
+迭代子模式是指由一个统一的接口来提供对外访问自己元素的方式
+
+
+本身有5个角色
+
+以java本身的Iterator为例子
+抽象迭代子(Iterator)角色： 就是iterator接口，对外提供访问聚集元素的接口。不论你是list还是set
+具体迭代子(ConcreteIterator)角色： 比如arralist类里面的Itr内部类。
+聚集(Aggregate)角色：就是集合Colletion，一堆对象的聚集。
+具体聚集(ConcreteAggregate)角色：collection的具体实现，比如arraylist
+客户端(Client)角色：调用方，比如main方法。
+
+
+这里就不写例子了。

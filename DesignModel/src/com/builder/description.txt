@@ -1,0 +1,10 @@
+生成器/建造者 模式
+
+有下面几个角色
+
+Director 负责调用具体的builder，组成具体产品
+Builder 抽象角色，描述产品的组合过程并且负责返回产品
+ConcreteBuilder 具体实现类，定义builder 的不同实现过程
+Product 复杂对象
+
+主要是适用于创建复杂对象
