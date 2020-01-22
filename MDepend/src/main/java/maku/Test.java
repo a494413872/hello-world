@@ -13,15 +13,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Test {
 
-    public static Set<String> getYearDoubleWeekend(int year){
-        Set<String> listDates = new HashSet<String>();
+    public static List<String> getYearDoubleWeekend(int year){
+
+
+        List<String> listDates = new ArrayList<String>();
         Calendar calendar=Calendar.getInstance();//当前日期
         calendar.set(year, 6, 1);
         Calendar nowyear=Calendar.getInstance();
@@ -31,16 +30,27 @@ public class Test {
         calendar.add(Calendar.DAY_OF_MONTH, -calendar.get(Calendar.DAY_OF_WEEK));//周六
         Calendar c=(Calendar) calendar.clone();
         for(;calendar.before(nexty)&&calendar.after(nowyear);calendar.add(Calendar.DAY_OF_YEAR, -7)){
-            listDates.add(calendar.get(Calendar.YEAR)+"-"+(1+calendar.get(Calendar.MONTH))+"-"+calendar.get(Calendar.DATE));
-            listDates.add(calendar.get(Calendar.YEAR)+"-"+(1+calendar.get(Calendar.MONTH))+"-"+(1+calendar.get(Calendar.DATE)));
+            listDates.add(calendar.get(Calendar.YEAR)+"-"+(1+calendar.get(Calendar.MONTH))+"-"+(calendar.get(Calendar.DATE)-1));
+            listDates.add(calendar.get(Calendar.YEAR)+"-"+(1+calendar.get(Calendar.MONTH))+"-"+(calendar.get(Calendar.DATE)));
         }
         for(;c.before(nexty)&&c.after(nowyear);c.add(Calendar.DAY_OF_YEAR, 7)){
-            listDates.add(c.get(Calendar.YEAR)+"-"+(1+c.get(Calendar.MONTH))+"-"+c.get(Calendar.DATE));
+            listDates.add(c.get(Calendar.YEAR)+"-"+(1+c.get(Calendar.MONTH))+"-"+(c.get(Calendar.DATE)-1));
             listDates.add(c.get(Calendar.YEAR)+"-"+(1+c.get(Calendar.MONTH))+"-"+(1+c.get(Calendar.DATE)));
         }
+        for (int i = 0; i < listDates.size(); i++) {
+            int amount = (int) (Math.random()*20);
+            int minute = (int)(Math.random()*60);
+            int second = (int)(Math.random()*30);
+            if(i%2==0){
+                System.out.println(listDates.get(i)+" 20:"+minute+":"+second+" 金额："+(120+amount));
+            }else {
+                System.out.println(listDates.get(i)+" 19:"+minute+":"+second+" 金额："+(120+amount));
+            }
+        }
+        System.out.println(listDates.size());
         return listDates;
     };public static void main(String[] args) {
-        System.out.println(getYearDoubleWeekend(2019));
+       getYearDoubleWeekend(2019);
 
     }
 
