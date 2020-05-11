@@ -20,4 +20,6 @@
     <dubbo:service interface="com.alibaba.dubbo.demo.Demo2Service" ref="demo2Service" protocol="dubbo" />
     <!--具体实现该接口的 bean-->
     <bean id="demo2Service" class="com.alibaba.dubbo.demo.impl.Demo2ServiceImpl"/>
+
+    <!--<dubbo:provider filter="providerTrackFilter"></dubbo:provider>-->
 </beans>

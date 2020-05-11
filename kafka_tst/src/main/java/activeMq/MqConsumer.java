@@ -15,18 +15,22 @@ public class MqConsumer {
         Destination destination = session.createQueue("USER_TASK_20200420");
         MessageConsumer messageConsumer=session.createConsumer(destination);
 
-        while (true){
-            TextMessage message = (TextMessage) messageConsumer.receive();
-            if (message!=null){
-                System.out.println("*****************");
-                System.out.println(message.getText());
-                Thread.sleep(10000l);
-            }else {
-                break;
-            }
-        }
+//        while (true){
+//            TextMessage message = (TextMessage) messageConsumer.receive();
+//            if (message!=null){
+//                System.out.println("*****************");
+//                System.out.println(message.getText());
+////                Thread.sleep(10000l);
+//            }else {
+//                break;
+//            }
+//        }
+        TextMessage message = (TextMessage) messageConsumer.receive();
+            System.out.println("*****************");
+            System.out.println(message.getText());
+//                Thread.sleep(10000l);
 
-        session.commit();
+//        session.commit();
         messageConsumer.close();
         session.close();
         connection.close();
