@@ -7,8 +7,9 @@ package com.thread.Lone;
 public class Test {
 
     public static void main(String[] args) {
-        String s = "-12345";
-        System.out.println(Long.parseLong(s));
+        Father f = new Father();
+        Son s = (Son) f;
+        System.out.println("haha");
 
     }
 
